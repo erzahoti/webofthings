@@ -7,5 +7,6 @@ if($_POST){
 	fclose($myfile);
 	echo "Output file updated!<br>";
 	echo $content;
+	// update erza
 }
 ?>
