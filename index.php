@@ -6,6 +6,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</head>
 	<body>
+        <div>Quynh</div>
 		<?php
 			$myfile = fopen("input.txt", "r") or die("Unable to open file!");
 			$input = fread($myfile,filesize("input.txt"));
