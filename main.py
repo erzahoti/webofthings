@@ -8,12 +8,46 @@ def home():
     return render_template("index.html")
 
 
-@app.route('/change_light', methods=['POST'])
-def change_light():
-    print('change_light function')
-    return render_template("index.html")
-    # your code
-    # return a response
+@app.route('/changeLight', methods=['POST'])
+def changeLight():
+    status = request.form['status']
+    a_file = open("config.txt", "r")
+    list_of_lines = a_file.readlines()
+    index = -1
+    count = 0
+    for line in list_of_lines:
+        if line.find("gpio-100:") != -1:
+            index = count
+        count += 1
+
+    a_file = open("config.txt", "w")
+    s = list_of_lines[index].split(":")
+    list_of_lines[index] = s[0] + ":" + str(status) + "\n"
+    a_file.writelines(list_of_lines)
+    a_file.close()
+    return status
+
+
+@app.route('/readLight', methods=['GET'])
+def readLight():
+    a_file = open("config.txt", "r")
+    list_of_lines = a_file.readlines()
+    temp = ''
+    for line in list_of_lines:
+        if line.find("gpio-100") != -1:
+            temp = line
+    return temp
+
+
+@app.route('/readTemp', methods=['GET'])
+def readTemp():
+    a_file = open("config.txt", "r")
+    list_of_lines = a_file.readlines()
+    temp = ''
+    for line in list_of_lines:
+        if line.find("temp-101") != -1:
+            temp = line
+    return temp
 
 
 if __name__ == "__main__":
