@@ -24,20 +24,6 @@ $('#selectLight').on('change', function (e) {
         });
 });
 
-/**
-    Read Temperature status
-**/
-$.ajax({
-		url: '/readTemp',
-		type: 'GET',
-		success: function(response){
-			var res = response.split(":");
-			$('#tempStatus').text("Status: "+res[1]+"°");
-		},
-		error: function(error){
-			console.log(error);
-		}
-});
 
 /**
     Read Light status
@@ -54,6 +40,38 @@ $.ajax({
             } else {
 		        $('#lightStatus').text("Current status: OFF");
             }
+		},
+		error: function(error){
+			console.log(error);
+		}
+});
+
+
+/**
+    Read Temperature status
+**/
+$.ajax({
+		url: '/readTemp',
+		type: 'GET',
+		success: function(response){
+			var res = response.split(":");
+			$('#tempStatus').text("Current status: "+res[1]+"°");
+		},
+		error: function(error){
+			console.log(error);
+		}
+});
+
+
+/**
+    Read Humidity status
+**/
+$.ajax({
+		url: '/readHum',
+		type: 'GET',
+		success: function(response){
+			var res = response.split(":");
+			$('#humStatus').text("Current status: "+res[1]+"%");
 		},
 		error: function(error){
 			console.log(error);

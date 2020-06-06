@@ -11,7 +11,10 @@ gpio=18,20=pu
 gpio=17-21=ip
 
 # LED'S PORT
-gpio-100:0
+gpio-100:1
 
 # TEMPERATURE
-temp-101:360000
+temp-101:22
+
+# HUMIDITY
+hum-102:55
