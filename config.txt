@@ -1,0 +1,17 @@
+# Select Alt2 for GPIO pins 0 to 27 (for DPI24)
+gpio=0-27=a2
+
+# Set GPIO12 to be an output set to 1
+gpio=12=op,dh
+
+# Change the pull on (input) pins 18 and 20
+gpio=18,20=pu
+
+# Make pins 17 to 21 inputs
+gpio=17-21=ip
+
+# LED'S PORT
+gpio-100:0
+
+# TEMPERATURE
+temp-101:360000
