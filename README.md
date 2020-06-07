@@ -11,11 +11,12 @@ SETUP:
 git clone https://github.com/erzahoti/webofthings 
 &nbsp;
 &nbsp;
-
+cd webofthings
+&nbsp;
+&nbsp;
 pip install Flask
 &nbsp;
-
+&nbsp;
 To run application:
 &nbsp;
-
 python main.py
