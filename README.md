@@ -22,3 +22,5 @@ pip install Flask
 &nbsp;
 
 python main.py
+
+Reference to install Flask: https://timmyreilly.azurewebsites.net/python-flask-windows-development-environment-setup/
