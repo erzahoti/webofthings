@@ -3,7 +3,7 @@ Web of Things project (UNIME)
 &nbsp;
 &nbsp;
 
-To run this web application, you should installed Python and Flask framework.
+To run this web application, you should install Python and Flask framework.
 
 # Setup
 
