@@ -32,10 +32,9 @@ $.ajax({
 		url: '/readLight',
 		type: 'GET',
 		success: function(response){
-			var res = response.split(":");
-			$("#selectLight").val(parseInt(res[1]));
-			console.log(res[1])
-			 if(res[1]==1){
+                        console.log(response);
+			$("#selectLight").val(response[0]);
+			 if(response[0]==1){
 			    $('#lightStatus').text("Current status: ON");
             } else {
 		        $('#lightStatus').text("Current status: OFF");
@@ -54,8 +53,7 @@ $.ajax({
 		url: '/readTemp',
 		type: 'GET',
 		success: function(response){
-			var res = response.split(":");
-			$('#tempStatus').text("Current status: "+res[1]+"°");
+			$('#tempStatus').text("Current status: "+response+"°");
 		},
 		error: function(error){
 			console.log(error);
@@ -70,8 +68,7 @@ $.ajax({
 		url: '/readHum',
 		type: 'GET',
 		success: function(response){
-			var res = response.split(":");
-			$('#humStatus').text("Current status: "+res[1]+"%");
+			$('#humStatus').text("Current status: "+response+"%");
 		},
 		error: function(error){
 			console.log(error);

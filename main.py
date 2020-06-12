@@ -26,10 +26,6 @@ def contact():
 def light():
     return render_template('light.html')
 
-@app.route('/led')
-def led():
-    return render_template('led.html')
-
 @app.route('/temperature')
 def temperature():
     return render_template('temperature.html')
@@ -41,53 +37,33 @@ def humidity():
 @app.route('/changeLight', methods=['POST'])
 def changeLight():
     status = request.form['status']
-    a_file = open("config.txt", "r")
-    list_of_lines = a_file.readlines()
-    index = -1
-    count = 0
-    for line in list_of_lines:
-        if line.find("gpio-100:") != -1:
-            index = count
-        count += 1
-
-    a_file = open("config.txt", "w")
-    s = list_of_lines[index].split(":")
-    list_of_lines[index] = s[0] + ":" + str(status) + "\n"
-    a_file.writelines(list_of_lines)
+    a_file = open("/sys/class/gpio/gpio24/value", "w")
+    a_file.writelines(status)
     a_file.close()
     return status
 
 @app.route('/readLight', methods=['GET'])
 def readLight():
-    a_file = open("config.txt", "r")
-    list_of_lines = a_file.readlines()
-    light = ''
-    for line in list_of_lines:
-        if line.find("gpio-100") != -1:
-            light = line
+    a_file = open("/sys/class/gpio/gpio24/value", "r")
+    list_light = a_file.readlines()
+    light = list_light[0]
     return light
 
 
 @app.route('/readTemp', methods=['GET'])
 def readTemp():
-    a_file = open("config.txt", "r")
+    a_file = open("temp.txt", "r")
     list_of_lines = a_file.readlines()
-    temp = ''
-    for line in list_of_lines:
-        if line.find("temp-101") != -1:
-            temp = line
+    temp = list_of_lines[0]
     return temp
 
 
 @app.route('/readHum', methods=['GET'])
 def readHum():
-    a_file = open("config.txt", "r")
-    list_of_lines = a_file.readlines()
-    hum = ''
-    for line in list_of_lines:
-        if line.find("hum-102") != -1:
-            hum = line
-    return hum
+    a_file = open("humidity.txt", "r")
+    list = a_file.readlines()
+    humidity = list[0]
+    return humidity
 
 
 if __name__ == "__main__":
