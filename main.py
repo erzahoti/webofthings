@@ -22,6 +22,14 @@ def team():
 def contact():
     return render_template("index.html", _anchor="contact")
 
+@app.route('/felooca')
+def felooca():
+    return render_template("felooca_pi.html", _anchor="felooca")
+
+@app.route('/local')
+def local():
+    return render_template("local_pi.html", _anchor="local")
+
 @app.route('/light')
 def light():
     return render_template('light.html')
