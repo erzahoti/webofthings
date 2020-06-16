@@ -1,3 +1,5 @@
+// FOLOOCA RASPBERRY PI REST APIs.
+
 /**
     Change light's status
 **/
@@ -5,7 +7,7 @@
 $('#selectLight').on('change', function (e) {
         var status = $(this).children("option:selected").val();
         $.ajax({
-          url: "/changeLight",
+          url: "https://rasp.testwot.iot.felooca.eu//changeLight",
           type: "POST",
           data: {'status': status},
           dataType: "json",
@@ -29,7 +31,7 @@ $('#selectLight').on('change', function (e) {
     Read Light status
 **/
 $.ajax({
-		url: '/readLight',
+		url: 'https://rasp.testwot.iot.felooca.eu//readLight',
 		type: 'GET',
 		success: function(response){
                         console.log(response);
@@ -50,7 +52,7 @@ $.ajax({
     Read Temperature status
 **/
 $.ajax({
-		url: '/readTemp',
+		url: 'https://rasp.testwot.iot.felooca.eu//readTemp',
 		type: 'GET',
 		success: function(response){
 			$('#tempStatus').text("Current status: "+response+"°");
@@ -65,7 +67,7 @@ $.ajax({
     Read Humidity status
 **/
 $.ajax({
-		url: '/readHum',
+		url: 'https://rasp.testwot.iot.felooca.eu//readHum',
 		type: 'GET',
 		success: function(response){
 			$('#humStatus').text("Current status: "+response+"%");
@@ -74,6 +76,3 @@ $.ajax({
 			console.log(error);
 		}
 });
-
-
-

@@ -42,17 +42,18 @@ def temperature():
 def humidity():
     return render_template('humidity.html')
 
+# Local machine raspberry pi
 @app.route('/changeLight', methods=['POST'])
 def changeLight():
     status = request.form['status']
-    a_file = open("/sys/class/gpio/gpio24/value", "w")
+    a_file = open("lights", "w")
     a_file.writelines(status)
     a_file.close()
     return status
 
 @app.route('/readLight', methods=['GET'])
 def readLight():
-    a_file = open("/sys/class/gpio/gpio24/value", "r")
+    a_file = open("light", "r")
     list_light = a_file.readlines()
     light = list_light[0]
     return light
@@ -72,7 +73,6 @@ def readHum():
     list = a_file.readlines()
     humidity = list[0]
     return humidity
-
 
 if __name__ == "__main__":
     app.run()
