@@ -1,7 +1,6 @@
 /**
     Change light's status
 **/
-
 $('#selectLight').on('change', function (e) {
         var status = $(this).children("option:selected").val();
         $.ajax({
@@ -9,13 +8,8 @@ $('#selectLight').on('change', function (e) {
           type: "POST",
           data: {'status': status},
           dataType: "json",
-          beforeSend: function(x) {
-            if (x && x.overrideMimeType) {
-              x.overrideMimeType("application/j-son;charset=UTF-8");
-            }
-          },
           success: function(result) {
-            if(result=="1"){
+          if(result==="1"){
 			    $('#lightStatus').text("Current status: ON");
             } else {
 		        $('#lightStatus').text("Current status: OFF");
@@ -32,9 +26,8 @@ $.ajax({
 		url: '/readLight',
 		type: 'GET',
 		success: function(response){
-                        console.log(response);
-			$("#selectLight").val(response[0]);
-			 if(response[0]==1){
+			$("#selectLight").val(response);
+			 if(response==="1"){
 			    $('#lightStatus').text("Current status: ON");
             } else {
 		        $('#lightStatus').text("Current status: OFF");
