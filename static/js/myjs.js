@@ -14,7 +14,11 @@ $('#selectLight').on('change', function (e) {
             } else {
 		        $('#lightStatus').text("Current status: OFF");
             }
-          }
+          },
+		  error: function(error) {
+			console.log(error);
+		  }
+
         });
 });
 
