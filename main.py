@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, redirect
-from flask_cors import CORS
 
 app = Flask(__name__, template_folder='templates')
-CORS(app)
 
 
 @app.route('/')
@@ -27,11 +25,11 @@ def contact():
 
 @app.route('/felooca')
 def felooca():
-    return render_template("felooca_pi.html", _anchor="felooca")
+    return render_template("felooca_pi.html")
 
 @app.route('/local')
 def local():
-    return render_template("local_pi.html", _anchor="local")
+    return render_template("local_pi.html")
 
 @app.route('/light')
 def light():
