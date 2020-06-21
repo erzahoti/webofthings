@@ -18,6 +18,10 @@ pip install Flask
 &nbsp;
 &nbsp;
 
+pip install -U flask-cors
+&nbsp;
+&nbsp;
+
 <b>To run application:</b>
 &nbsp;
 
