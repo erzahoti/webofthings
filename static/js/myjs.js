@@ -9,7 +9,7 @@ $('#selectLight').on('change', function (e) {
           data: {'status': status},
           dataType: "json",
           success: function(result) {
-          if(result==="1"){
+          if(String(result)==="1"){
 			    $('#lightStatus').text("Current status: ON");
             } else {
 		        $('#lightStatus').text("Current status: OFF");
@@ -27,7 +27,7 @@ $.ajax({
 		type: 'GET',
 		success: function(response){
 			$("#selectLight").val(response);
-			 if(response==="1"){
+			 if(String(response)==="1"){
 			    $('#lightStatus').text("Current status: ON");
             } else {
 		        $('#lightStatus').text("Current status: OFF");

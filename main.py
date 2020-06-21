@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, redirect
-from flask_cors import CORS
 
 app = Flask(__name__, template_folder='templates')
-CORS(app)
 
 
 @app.route('/')
